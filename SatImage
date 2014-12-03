@@ -1,0 +1,36 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package javaapplication7;
+
+import org.gdal.gdal.Dataset;
+import org.gdal.gdal.gdal;
+
+/**
+ *
+ * @author Group-8
+ */
+public class SatImage {
+     public void openImage(){
+          
+         Dataset Imagebands = gdal.Open("C://Java_project//pan_subset.img");
+              
+              String srs;
+              
+              int r_size =Imagebands.GetRasterXSize();
+              int c_size =Imagebands.GetRasterYSize();
+              System.out.println("The number of rows and coloumns of the image are:" + r_size + "and" + c_size);
+              
+              srs =Imagebands.GetProjection();
+              System.out.println("Spatial reference of original image is:"+srs);
+             
+              int  spectral_res =Imagebands.GetRasterCount();  
+              System.out.println("Number of bands in image  are : "+ spectral_res);
+              
+              
+                  
+               
+      }
+    
+}
